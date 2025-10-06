@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Build output
+lib/
+dist/
+
+# Templates (handled separately)
+src/templates/
+
+# Generated files
+*.tsbuildinfo
+*.js.map
+*.d.ts.map
+
+# Logs
+*.log
+
+# Other
+.DS_Store

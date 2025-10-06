@@ -1,0 +1,58 @@
+# Source files
+src/
+*.ts
+*.tsx
+!lib/**/*.d.ts
+
+# Development files
+.vscode/
+.idea/
+*.log
+*.swp
+*.swo
+*~
+
+# Configuration files
+.editorconfig
+.eslintrc*
+.prettierrc*
+prettier.config.*
+eslint.config.*
+babel.config.js
+tsconfig.json
+lefthook.yml
+
+# Git
+.git/
+.gitignore
+
+# Testing
+coverage/
+.nyc_output/
+test/
+tests/
+__tests__/
+*.test.*
+*.spec.*
+
+# Documentation (keep README.md)
+docs/
+*.md
+!README.md
+
+# Build artifacts
+*.tsbuildinfo
+.build/
+dist/
+
+# Dependencies
+node_modules/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

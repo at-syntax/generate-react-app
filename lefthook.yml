@@ -1,0 +1,46 @@
+# Lefthook configuration for generate-react-app
+# Refer for explanation to following link:
+# https://github.com/evilmartians/lefthook/blob/master/docs/full_guide.md
+
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      glob: "src/**/*.{ts,tsx}"
+      exclude: "src/templates/**/*"
+      run: npm run lint
+      stage_fixed: true
+
+    format-check:
+      glob: "src/**/*.{ts,tsx,json,md}"
+      exclude: "src/templates/**/*"
+      run: npm run format:check
+
+    type-check:
+      glob: "src/**/*.{ts,tsx}"
+      exclude: "src/templates/**/*"
+      run: npm run type-check
+
+pre-push:
+  commands:
+    branch-check:
+      run: |
+        CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+        PROTECTED_BRANCHES="main|master|production|release"
+
+        if [[ $CURRENT_BRANCH =~ ^($PROTECTED_BRANCHES)$ ]]; then
+          echo "🚫 Operation to protected branch '$CURRENT_BRANCH' is not allowed!"
+          echo "Please create a feature branch and submit a pull request."
+          echo "Example: git checkout -b feature/your-feature-name"
+          exit 1
+        fi
+
+        echo "✅ Push to branch '$CURRENT_BRANCH' allowed"
+
+    build-check:
+      run: npm run build
+
+commit-msg:
+  commands:
+    commit-format:
+      run: npm run commitlint -- --edit {1}
