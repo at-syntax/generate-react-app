@@ -30,7 +30,10 @@
     "strict": true,
     "target": "esnext",
     "verbatimModuleSyntax": true,
-    "types": []
+    "types": [
+      "jest",
+      "node"
+    ]
   },
   "exclude": [
     "eslint.config.cjs",

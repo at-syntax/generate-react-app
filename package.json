@@ -49,13 +49,16 @@
     "lint": "eslint 'src/**/*.{ts,tsx}' --ignore-pattern 'src/templates/**'",
     "lint:fix": "eslint 'src/**/*.{ts,tsx}' --ignore-pattern 'src/templates/**' --fix",
     "prepublishOnly": "npm run build",
-    "publish": "npm publish --access public",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish": "npm publish",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
     "type-check": "tsc --noEmit",
     "type-check:watch": "yarn type-check -- --watch"
   },
   "dependencies": {
     "chalk": "^5.6.2",
+    "ejs": "^3.1.10",
     "github-username": "^9.0.0",
     "ora": "^9.0.0",
     "prompts": "^2.4.2",
@@ -69,17 +72,26 @@
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
     "@eslint/js": "^9.36.0",
+    "@types/ejs": "^3.1.5",
     "@types/eslint__js": "^9.14.0",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.24",
     "@types/prompts": "^2.4.9",
     "@types/yargs": "^17.0.33",
     "eslint": "^9.36.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
+    "jest": "^29.7.0",
     "lefthook": "^1.13.6",
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
     "sort-package-json": "^3.4.0",
+    "ts-jest": "^29.1.2",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.45.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
